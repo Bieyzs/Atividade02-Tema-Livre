@@ -26,12 +26,12 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-brand">
-            <span class="logo">NEXUS</span>
+            <span class="logo">NEXUS <span class="logo2">GAMES</span> </span>
         </div>
         <div class="nav-links" id="navLinks">
             <a href="javascript:void(0);" class="active" onclick="showSection('home')">Inicio</a>
             <a href="javascript:void(0);" onclick="showSection('allGames')">Todos os Jogos</a>
-            <a href="javascript:void(0);" onclick="showSection('deals')">Promocoes</a>
+            <a href="javascript:void(0);" onclick="showSection('deals')">Promoções</a>
             <a href="javascript:void(0);" onclick="openLogin(); return false;">Login</a>
         </div>
         <button class="menu-toggle" onclick="toggleMenu()">
@@ -152,7 +152,7 @@
 
         <!-- Grid: Promocoes -->
         <div class="grid-section">
-            <h2 class="section-title">Promocoes da Semana</h2>
+            <h2 class="section-title">Promoções da Semana</h2>
             <div class="games-grid">
                 <div class="game-card" onclick="showGameDetail('Dark Souls III', 'rpg', '99.90')">
                     <img src="https://image.api.playstation.com/vulcan/ap/disc/1604/CUSA03365_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Dark Souls 3" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=Dark+Souls+III'">
@@ -204,7 +204,7 @@
             <h1>Todos os Jogos</h1>
             <div class="filters">
                 <button class="filter-btn active" onclick="filterGames('all')">Todos</button>
-                <button class="filter-btn" onclick="filterGames('acao')">Acao</button>
+                <button class="filter-btn" onclick="filterGames('acao')">Ação</button>
                 <button class="filter-btn" onclick="filterGames('rpg')">RPG</button>
                 <button class="filter-btn" onclick="filterGames('terror')">Terror</button>
                 <button class="filter-btn" onclick="filterGames('indie')">Indie</button>
@@ -326,14 +326,14 @@
         </div>
     </section>
 
-    <!-- Secao Promocoes -->
+    <!-- Seção Promocoes -->
     <section id="deals" class="section">
         <div class="section-header">
-            <h1>Promocoes</h1>
+            <h1>Promoções</h1>
         </div>
         <div class="deals-banner">
-            <h2>Ofertas Especiais Nexus</h2>
-            <p>Ate 75% de desconto em titulos selecionados</p>
+            <h2>Ofertas Especiais Nexus <span class="logo2">GAMES</span></h2>
+            <p>Até 75% de desconto em títulos selecionados</p>
         </div>
         <div class="games-grid">
             <div class="game-card" onclick="showGameDetail('Dark Souls III', 'rpg', '99.90')">
@@ -429,7 +429,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <span class="logo">NEXUS</span>
+                <span class="logo">NEXUS <span class="logo2">GAMES</span> </span>
                 <p>Sua loja de jogos definitiva.</p>
             </div>
             <div class="footer-links">
@@ -441,6 +441,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Nexus Games Store. Todos os direitos reservados.</p>
+            <p>Desenvolvido por Gabriel Barroso De Souza</p>
         </div>
     </footer>
 
