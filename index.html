@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Games Store</title>
+    <link rel="stylesheet" href="styles.css">
+<base target="_blank">
+</head>
+<body>
+
+    <!-- Overlay de Login -->
+    <div id="loginOverlay" class="overlay">
+        <div class="login-modal">
+            <button class="close-btn" onclick="closeLogin()">&times;</button>
+            <h2>Entrar na Nexus</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="E-mail" required>
+                <input type="password" placeholder="Senha" required>
+                <button type="submit" class="btn-primary">Entrar</button>
+                <a href="#" class="forgot">Esqueceu a senha?</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">NEXUS</span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="javascript:void(0);" class="active" onclick="showSection('home')">Inicio</a>
+            <a href="javascript:void(0);" onclick="showSection('allGames')">Todos os Jogos</a>
+            <a href="javascript:void(0);" onclick="showSection('deals')">Promocoes</a>
+            <a href="javascript:void(0);" onclick="openLogin(); return false;">Login</a>
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Secao Inicial -->
+    <section id="home" class="section active">
+        <!-- Hero -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Grand Theft Auto V</h1>
+                <p>Retorne a Vice City em uma nova era de crime e caos.</p>
+                <button class="btn-primary" onclick="showGameDetail('GTA VI', 'acao', '299.90')">Ver Detalhes</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/271590/library_600x900_2x.jpg" alt="GTA VI" onerror="this.src='https://via.placeholder.com/800x400/1a1a2e/fff?text=GTA+VI'">
+            </div>
+        </div>
+
+        <!-- Carrossel: Mais Populares -->
+        <div class="carousel-section">
+            <h2 class="section-title">Mais Populares</h2>
+            <div class="carousel-container">
+                <div class="carousel" id="popularCarousel">
+                    <div class="game-card" onclick="showGameDetail('Elden Ring', 'rpg', '249.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2102/CUSA18779_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Elden Ring" onerror="this.src='https://via.placeholder.com/300x400/2d132c/fff?text=Elden+Ring'">
+                        <div class="card-info">
+                            <h3>Elden Ring</h3>
+                            <span class="price">R$ 249,90</span>
+                        </div>
+                    </div>
+                    <div class="game-card" onclick="showGameDetail('The Witcher 3', 'rpg', '79.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2104/CUSA00527_00/w8FeEBpP8d0z4s5t6u7v.png" alt="The Witcher 3" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=The+Witcher+3'">
+                        <div class="card-info">
+                            <h3>The Witcher 3</h3>
+                            <span class="price">R$ 79,90</span>
+                        </div>
+                    </div>
+                    <div class="game-card" onclick="showGameDetail('Red Dead Redemption 2', 'acao', '199.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2110/CUSA03041_00/w8FeEBpP8d0z4s5t6u7v.png" alt="RDR2" onerror="this.src='https://via.placeholder.com/300x400/16213e/fff?text=RDR2'">
+                        <div class="card-info">
+                            <h3>Red Dead Redemption 2</h3>
+                            <span class="price">R$ 199,90</span>
+                        </div>
+                    </div>
+                    <div class="game-card" onclick="showGameDetail('Cyberpunk 2077', 'rpg', '199.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2109/CUSA16579_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Cyberpunk 2077" onerror="this.src='https://via.placeholder.com/300x400/0f3460/fff?text=Cyberpunk+2077'">
+                        <div class="card-info">
+                            <h3>Cyberpunk 2077</h3>
+                            <span class="price">R$ 199,90</span>
+                        </div>
+                    </div>
+                    <div class="game-card" onclick="showGameDetail('God of War Ragnarok', 'acao', '299.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2208/CUSA34384_00/w8FeEBpP8d0z4s5t6u7v.png" alt="God of War Ragnarok" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=God+of+War'">
+                        <div class="card-info">
+                            <h3>God of War Ragnarok</h3>
+                            <span class="price">R$ 299,90</span>
+                        </div>
+                    </div>
+                    <div class="game-card" onclick="showGameDetail('Hogwarts Legacy', 'rpg', '249.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2302/CUSA31652_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Hogwarts Legacy" onerror="this.src='https://via.placeholder.com/300x400/2d132c/fff?text=Hogwarts+Legacy'">
+                        <div class="card-info">
+                            <h3>Hogwarts Legacy</h3>
+                            <span class="price">R$ 249,90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrossel: Lancamentos -->
+        <div class="carousel-section">
+            <h2 class="section-title">Lancamentos</h2>
+            <div class="carousel-container">
+                <div class="carousel" id="newCarousel">
+                    <div class="game-card" onclick="showGameDetail('Black Myth: Wukong', 'acao', '229.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2408/CUSA36848_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Black Myth Wukong" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=Black+Myth'">
+                        <div class="card-info">
+                            <h3>Black Myth: Wukong</h3>
+                            <span class="price">R$ 229,90</span>
+                        </div>
+                    </div>
+                    <div class="game-card" onclick="showGameDetail('Starfield', 'rpg', '299.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2309/CUSA36807_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Starfield" onerror="this.src='https://via.placeholder.com/300x400/16213e/fff?text=Starfield'">
+                        <div class="card-info">
+                            <h3>Starfield</h3>
+                            <span class="price">R$ 299,90</span>
+                        </div>
+                    </div>
+                    <div class="game-card" onclick="showGameDetail('Baldurs Gate 3', 'rpg', '249.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2309/CUSA36808_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Baldurs Gate 3" onerror="this.src='https://via.placeholder.com/300x400/0f3460/fff?text=Baldurs+Gate+3'">
+                        <div class="card-info">
+                            <h3>Baldur's Gate 3</h3>
+                            <span class="price">R$ 249,90</span>
+                        </div>
+                    </div>
+                    <div class="game-card" onclick="showGameDetail('Expedition33', 'terror', '229.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2310/CUSA36809_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Alan Wake 2" onerror="this.src='https://via.placeholder.com/300x400/2d132c/fff?text=Expedition+33'">
+                        <div class="card-info">
+                            <h3>Expedition 33</h3>
+                            <span class="price">R$ 229,90</span>
+                        </div>
+                    </div>
+                    <div class="game-card" onclick="showGameDetail('Spider-Man 2', 'acao', '349.90')">
+                        <img src="https://image.api.playstation.com/vulcan/ap/disc/2310/CUSA36810_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Spider-Man 2" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=Spider-Man+2'">
+                        <div class="card-info">
+                            <h3>Marvel's Spider-Man 2</h3>
+                            <span class="price">R$ 349,90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid: Promocoes -->
+        <div class="grid-section">
+            <h2 class="section-title">Promocoes da Semana</h2>
+            <div class="games-grid">
+                <div class="game-card" onclick="showGameDetail('Dark Souls III', 'rpg', '99.90')">
+                    <img src="https://image.api.playstation.com/vulcan/ap/disc/1604/CUSA03365_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Dark Souls 3" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=Dark+Souls+III'">
+                    <div class="card-info">
+                        <h3>Dark Souls III</h3>
+                        <div class="price-tag">
+                            <span class="old-price">R$ 199,90</span>
+                            <span class="price discount">R$ 99,90</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" onclick="showGameDetail('Sekiro', 'acao', '129.90')">
+                    <img src="https://image.api.playstation.com/vulcan/ap/disc/1903/CUSA13836_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Sekiro" onerror="this.src='https://via.placeholder.com/300x400/16213e/fff?text=Sekiro'">
+                    <div class="card-info">
+                        <h3>Sekiro: Shadows Die Twice</h3>
+                        <div class="price-tag">
+                            <span class="old-price">R$ 249,90</span>
+                            <span class="price discount">R$ 129,90</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" onclick="showGameDetail('Resident Evil 4', 'terror', '149.90')">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/library_600x900_2x.jpg" alt="RE4" onerror="this.src='https://via.placeholder.com/300x400/0f3460/fff?text=Resident+Evil+4'">
+                    <div class="card-info">
+                        <h3>Resident Evil 4 Remake</h3>
+                        <div class="price-tag">
+                            <span class="old-price">R$ 249,90</span>
+                            <span class="price discount">R$ 149,90</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" onclick="showGameDetail('Hades', 'indie', '39.90')">
+                    <img src="https://image.api.playstation.com/vulcan/ap/disc/2108/CUSA27200_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Hades" onerror="this.src='https://via.placeholder.com/300x400/2d132c/fff?text=Hades'">
+                    <div class="card-info">
+                        <h3>Hades</h3>
+                        <div class="price-tag">
+                            <span class="old-price">R$ 79,90</span>
+                            <span class="price discount">R$ 39,90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secao Todos os Jogos -->
+    <section id="allGames" class="section">
+        <div class="section-header">
+            <h1>Todos os Jogos</h1>
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterGames('all')">Todos</button>
+                <button class="filter-btn" onclick="filterGames('acao')">Acao</button>
+                <button class="filter-btn" onclick="filterGames('rpg')">RPG</button>
+                <button class="filter-btn" onclick="filterGames('terror')">Terror</button>
+                <button class="filter-btn" onclick="filterGames('indie')">Indie</button>
+            </div>
+        </div>
+        <div class="games-grid" id="allGamesGrid">
+            <div class="game-card" data-genre="acao" onclick="showGameDetail('GTA VI', 'acao', '299.90')">
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/271590/library_600x900_2x.jpg" alt="GTA VI" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=GTA+VI'">
+                <div class="card-info">
+                    <h3>Grand Theft Auto VI</h3>
+                    <span class="price">R$ 299,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="rpg" onclick="showGameDetail('Elden Ring', 'rpg', '249.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2102/CUSA18779_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Elden Ring" onerror="this.src='https://via.placeholder.com/300x400/2d132c/fff?text=Elden+Ring'">
+                <div class="card-info">
+                    <h3>Elden Ring</h3>
+                    <span class="price">R$ 249,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="rpg" onclick="showGameDetail('The Witcher 3', 'rpg', '79.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2104/CUSA00527_00/w8FeEBpP8d0z4s5t6u7v.png" alt="The Witcher 3" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=The+Witcher+3'">
+                <div class="card-info">
+                    <h3>The Witcher 3</h3>
+                    <span class="price">R$ 79,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="acao" onclick="showGameDetail('Red Dead Redemption 2', 'acao', '199.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2110/CUSA03041_00/w8FeEBpP8d0z4s5t6u7v.png" alt="RDR2" onerror="this.src='https://via.placeholder.com/300x400/16213e/fff?text=RDR2'">
+                <div class="card-info">
+                    <h3>Red Dead Redemption 2</h3>
+                    <span class="price">R$ 199,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="rpg" onclick="showGameDetail('Cyberpunk 2077', 'rpg', '199.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2109/CUSA16579_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Cyberpunk 2077" onerror="this.src='https://via.placeholder.com/300x400/0f3460/fff?text=Cyberpunk+2077'">
+                <div class="card-info">
+                    <h3>Cyberpunk 2077</h3>
+                    <span class="price">R$ 199,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="acao" onclick="showGameDetail('God of War Ragnarok', 'acao', '299.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2208/CUSA34384_00/w8FeEBpP8d0z4s5t6u7v.png" alt="God of War" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=God+of+War'">
+                <div class="card-info">
+                    <h3>God of War Ragnarok</h3>
+                    <span class="price">R$ 299,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="rpg" onclick="showGameDetail('Hogwarts Legacy', 'rpg', '249.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2302/CUSA31652_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Hogwarts Legacy" onerror="this.src='https://via.placeholder.com/300x400/2d132c/fff?text=Hogwarts+Legacy'">
+                <div class="card-info">
+                    <h3>Hogwarts Legacy</h3>
+                    <span class="price">R$ 249,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="acao" onclick="showGameDetail('Black Myth: Wukong', 'acao', '229.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2408/CUSA36848_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Black Myth" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=Black+Myth'">
+                <div class="card-info">
+                    <h3>Black Myth: Wukong</h3>
+                    <span class="price">R$ 229,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="rpg" onclick="showGameDetail('Starfield', 'rpg', '299.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2309/CUSA36807_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Starfield" onerror="this.src='https://via.placeholder.com/300x400/16213e/fff?text=Starfield'">
+                <div class="card-info">
+                    <h3>Starfield</h3>
+                    <span class="price">R$ 299,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="rpg" onclick="showGameDetail('Baldurs Gate 3', 'rpg', '249.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2309/CUSA36808_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Baldurs Gate 3" onerror="this.src='https://via.placeholder.com/300x400/0f3460/fff?text=Baldurs+Gate+3'">
+                <div class="card-info">
+                    <h3>Baldur's Gate 3</h3>
+                    <span class="price">R$ 249,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="terror" onclick="showGameDetail('Expedition 33', 'terror', '229.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2310/CUSA36809_00/w8FeEBpP8d0z4s5t6u7v.png" alt=" 'Expedition 33" onerror="this.src='https://via.placeholder.com/300x400/2d132c/fff?text=Alan+Wake+2'">
+                <div class="card-info">
+                    <h3>Expedition 33</h3>
+                    <span class="price">R$ 229,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="acao" onclick="showGameDetail('Spider-Man 2', 'acao', '349.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2310/CUSA36810_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Spider-Man 2" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=Spider-Man+2'">
+                <div class="card-info">
+                    <h3>Marvel's Spider-Man 2</h3>
+                    <span class="price">R$ 349,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="rpg" onclick="showGameDetail('Dark Souls III', 'rpg', '99.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/1604/CUSA03365_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Dark Souls 3" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=Dark+Souls+III'">
+                <div class="card-info">
+                    <h3>Dark Souls III</h3>
+                    <span class="price discount">R$ 99,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="acao" onclick="showGameDetail('Sekiro', 'acao', '129.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/1903/CUSA13836_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Sekiro" onerror="this.src='https://via.placeholder.com/300x400/16213e/fff?text=Sekiro'">
+                <div class="card-info">
+                    <h3>Sekiro: Shadows Die Twice</h3>
+                    <span class="price discount">R$ 129,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="terror" onclick="showGameDetail('Resident Evil 4', 'terror', '149.90')">
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/library_600x900_2x.jpg" alt="RE4" onerror="this.src='https://via.placeholder.com/300x400/0f3460/fff?text=Resident+Evil+4'">
+                <div class="card-info">
+                    <h3>Resident Evil 4 Remake</h3>
+                    <span class="price discount">R$ 149,90</span>
+                </div>
+            </div>
+            <div class="game-card" data-genre="indie" onclick="showGameDetail('Hades', 'indie', '39.90')">
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2108/CUSA27200_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Hades" onerror="this.src='https://via.placeholder.com/300x400/2d132c/fff?text=Hades'">
+                <div class="card-info">
+                    <h3>Hades</h3>
+                    <span class="price discount">R$ 39,90</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secao Promocoes -->
+    <section id="deals" class="section">
+        <div class="section-header">
+            <h1>Promocoes</h1>
+        </div>
+        <div class="deals-banner">
+            <h2>Ofertas Especiais Nexus</h2>
+            <p>Ate 75% de desconto em titulos selecionados</p>
+        </div>
+        <div class="games-grid">
+            <div class="game-card" onclick="showGameDetail('Dark Souls III', 'rpg', '99.90')">
+                <div class="discount-badge">-50%</div>
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/1604/CUSA03365_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Dark Souls 3" onerror="this.src='https://via.placeholder.com/300x400/1a1a2e/fff?text=Dark+Souls+III'">
+                <div class="card-info">
+                    <h3>Dark Souls III</h3>
+                    <div class="price-tag">
+                        <span class="old-price">R$ 199,90</span>
+                        <span class="price discount">R$ 99,90</span>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card" onclick="showGameDetail('Sekiro', 'acao', '129.90')">
+                <div class="discount-badge">-48%</div>
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/1903/CUSA13836_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Sekiro" onerror="this.src='https://via.placeholder.com/300x400/16213e/fff?text=Sekiro'">
+                <div class="card-info">
+                    <h3>Sekiro: Shadows Die Twice</h3>
+                    <div class="price-tag">
+                        <span class="old-price">R$ 249,90</span>
+                        <span class="price discount">R$ 129,90</span>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card" onclick="showGameDetail('Resident Evil 4', 'terror', '149.90')">
+                <div class="discount-badge">-40%</div>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/library_600x900_2x.jpg" alt="RE4" onerror="this.src='https://via.placeholder.com/300x400/0f3460/fff?text=Resident+Evil+4'">
+                <div class="card-info">
+                    <h3>Resident Evil 4 Remake</h3>
+                    <div class="price-tag">
+                        <span class="old-price">R$ 249,90</span>
+                        <span class="price discount">R$ 149,90</span>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card" onclick="showGameDetail('Hades', 'indie', '39.90')">
+                <div class="discount-badge">-50%</div>
+                <img src="https://image.api.playstation.com/vulcan/ap/disc/2108/CUSA27200_00/w8FeEBpP8d0z4s5t6u7v.png" alt="Hades" onerror="this.src='https://via.placeholder.com/300x400/2d132c/fff?text=Hades'">
+                <div class="card-info">
+                    <h3>Hades</h3>
+                    <div class="price-tag">
+                        <span class="old-price">R$ 79,90</span>
+                        <span class="price discount">R$ 39,90</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secao Detalhe do Jogo -->
+    <section id="gameDetail" class="section">
+        <button class="back-btn" onclick="goBack()">&larr; Voltar</button>
+        <div class="detail-container">
+            <div class="detail-media">
+                <img id="detailImage" src="" alt="Game Cover">
+            </div>
+            <div class="detail-info">
+                <h1 id="detailTitle">Titulo do Jogo</h1>
+                <div class="detail-meta">
+                    <span id="detailGenre" class="genre-tag">Genero</span>
+                    <div class="rating">
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        <span class="score">4.8</span>
+                    </div>
+                </div>
+                <p class="detail-description">
+                    Uma experiencia epica que redefine os padroes do genero. 
+                    Mergulhe em um mundo vasto e detalhado, repleto de aventuras, 
+                    desafios e personagens memoraveis.
+                </p>
+                <div class="detail-price">
+                    <span id="detailPrice" class="price">R$ 0,00</span>
+                </div>
+                <div class="detail-actions">
+                    <button class="btn-buy">Comprar Agora</button>
+                    <button class="btn-wishlist">Adicionar a Lista de Desejos</button>
+                </div>
+                <div class="detail-specs">
+                    <h3>Requisitos Minimos:</h3>
+                    <ul>
+                        <li>SO: Windows 10 64-bit</li>
+                        <li>Processador: Intel Core i5-8400</li>
+                        <li>Memoria: 16 GB RAM</li>
+                        <li>Placa de video: NVIDIA GTX 1060 6GB</li>
+                        <li>Armazenamento: 100 GB disponiveis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo">NEXUS</span>
+                <p>Sua loja de jogos definitiva.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Sobre</a>
+                <a href="#">Suporte</a>
+                <a href="#">Termos</a>
+                <a href="#">Privacidade</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nexus Games Store. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
